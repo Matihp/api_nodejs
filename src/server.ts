@@ -1,5 +1,5 @@
 import morgan from "morgan";
-import express  from "express";
+import express, { Application }  from "express";
 import cors from "cors";
 
 class ServerBootstrap{
@@ -12,11 +12,10 @@ class ServerBootstrap{
         this.app.use(morgan('dev'))
         this.app.use(cors())
         this.listen()
-        this.app.get('/api/prueba',(req,res)=>{
-            res.status(200).json({
-                message: "hello bro",
-            })
-        })
+        this.app.get('/api/prueba',this.routers())
+    }
+    routers(): Array<express.Router>{
+        return []
     }
     public listen(){
         this.app.listen(this.port,()=>{
