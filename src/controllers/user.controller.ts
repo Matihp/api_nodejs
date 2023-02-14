@@ -3,7 +3,7 @@ import { Response ,Request } from "express";
 export class UserController{
     getUsers(req:Request , res:Response){
         res.status(200).json({
-            message: 'hola',
+            hello: 'hola',
         })
     }
 }
