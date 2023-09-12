@@ -17,11 +17,12 @@ export abstract class ConfigServer{
         return this.getEnvironment("NODE_ENV")?.trim() || ""
     }
     public createPath(path:string):string{
-        const arr: Array<string>=['env']
-        if(path.length>0){
-            const st=path.split('.')
+        const arr: Array<string>=["env"]
+
+        if(path.length > 0){
+            const st=path.split(".")
             arr.unshift(...st)
         }
-        return '.'+arr.join('.')
+        return "." + arr.join(".")
     }
 }
