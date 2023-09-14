@@ -1,4 +1,5 @@
 import * as dotenv from "dotenv"
+import { ConnectionOptions } from "typeorm"
 
 export abstract class ConfigServer{
     constructor(){
@@ -24,5 +25,16 @@ export abstract class ConfigServer{
             arr.unshift(...st)
         }
         return "." + arr.join(".")
+    }
+    public get typeORMConfig(): ConnectionOptions{
+        return {
+            type: "mysql",
+            host: this.getEnvironment("DB_HOST"),
+            port: this.getEnv("DB_PORT"),
+            username: this.getEnvironment("DB_USER"),
+            password: this.getEnvironment("DB_PASSWORD"),
+            database: this.getEnvironment("DB_DATABASE"),
+            entities: [__dirname + "/../**/*entity{.ts,.js}"]
+        }
     }
 }
