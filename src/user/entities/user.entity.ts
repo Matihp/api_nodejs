@@ -1,5 +1,6 @@
-import { Column, Entity } from "typeorm";
+import { Column, Entity, OneToOne } from "typeorm";
 import { BaseEntity } from "../../config/base.entity";
+import { CustomerEntity } from "../../customer/entities/customer.entitiy";
 
 @Entity({name:"user"})
 export class UserEntity extends BaseEntity {
@@ -9,8 +10,15 @@ export class UserEntity extends BaseEntity {
     name!:string
     @Column()
     lastname!:string
-    @Column({nullable:true})
-    job?:string
     @Column()
-    numberPhone!:number
+    password!:string
+    @Column()
+    email!:string
+    @Column({nullable:true})
+    city!:string
+    @Column()
+    province!:number
+
+    @OneToOne(()=> CustomerEntity, (customer => customer.user))
+    customer!: CustomerEntity
 }
