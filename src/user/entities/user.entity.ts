@@ -17,7 +17,7 @@ export class UserEntity extends BaseEntity {
     @Column({nullable:true})
     city!:string
     @Column()
-    province!:number
+    province!:string
 
     @OneToOne(()=> CustomerEntity, (customer => customer.user))
     customer!: CustomerEntity

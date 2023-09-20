@@ -38,7 +38,7 @@ export abstract class ConfigServer{
             entities: [__dirname + "/../**/*.entity{.ts,.js}"],
             migrations: [__dirname + "/../../migrations/*{.ts,.js}"],
             synchronize: true,
-            logging:false,
+            logging:true,
             namingStrategy: new SnakeNamingStrategy(),
         }
     }
