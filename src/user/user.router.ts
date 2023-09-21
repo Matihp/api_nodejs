@@ -6,6 +6,10 @@ export class UserRouter extends BaseRouter<UserController>{
         super(UserController)
     }
     routes(): void {
-        this.router.get("/hello",(req,res)=>this.controller.getUsers(req,res))
+        this.router.get("/users",(req,res)=>this.controller.getUsers(req,res))
+        this.router.get("/user/:id",(req,res)=>this.controller.getUsers(req,res))
+        this.router.get("/createUser",(req,res)=>this.controller.getUsers(req,res))
+        this.router.get("/updateUser/:id",(req,res)=>this.controller.getUsers(req,res))
+        this.router.get("/deleteUser/:id",(req,res)=>this.controller.getUsers(req,res))
     }
 }

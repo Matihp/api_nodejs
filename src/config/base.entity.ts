@@ -4,7 +4,7 @@ export abstract class BaseEntity{
     @PrimaryGeneratedColumn("uuid")
     id!: string;
     @CreateDateColumn({name:"created_at",type:"timestamp",})
-    createdAd!: Date;
+    createdAt!: Date;
     @UpdateDateColumn({name:"updated_at",type:"timestamp",})
     updateAt!: Date;
 }

@@ -1,6 +1,7 @@
 import { Column, Entity, OneToOne } from "typeorm";
 import { BaseEntity } from "../../config/base.entity";
 import { CustomerEntity } from "../../customer/entities/customer.entitiy";
+import { Exclude } from "class-transformer";
 
 @Entity({name:"user"})
 export class UserEntity extends BaseEntity {
@@ -10,6 +11,7 @@ export class UserEntity extends BaseEntity {
     name!:string
     @Column()
     lastname!:string
+    @Exclude()
     @Column()
     password!:string
     @Column()
